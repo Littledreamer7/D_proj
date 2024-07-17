@@ -55,7 +55,10 @@ jobs:
       - name: Deploy
         run: |
           git config --global user.email "johnbrittom994@gmail.com"
-          git remote add origin https://github.com/Littledreamer7/D_proj.git
+          git config --global user.name "John Britto"
+          if ! git remote get-url origin; then
+            git remote add origin https://github.com/Littledreamer7/D_proj.git
+          fi
           npm run deploy
         env:
           GITHUB_TOKEN: ${{ secrets.D_PROJECT_SECRET }}
