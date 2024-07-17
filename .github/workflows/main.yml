@@ -53,4 +53,10 @@ jobs:
           body: ${{ steps.changelog.outputs.clean_changelog }}
           
       - name: Deploy
-        run: npm run deploy
+        run: |
+          git config --global user.email "johnbrittom994@gmail.com"
+          git config --global user.name "John"
+          git remote add origin hhttps://github.com/Littledreamer7/D_proj.git
+          npm run deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.D_PROJECT_SECRET }}
